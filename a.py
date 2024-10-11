@@ -19,8 +19,8 @@ W.addNode("dest", 2, 1)
 ## ノード間のリンクの作成
 W.addLink(name="link1", start_node="orig1", end_node="merge",
           length=1000, free_flow_speed=20, number_of_lanes=1)
-W.addLink("link2", "orig2", "merge", length=1000, free_flow_speed=30, number_of_lanes=3)
-W.addLink("link3", "merge", "dest", length=1000, free_flow_speed=30, number_of_lanes=3)
+W.addLink("link2", "orig2", "merge", length=1000, free_flow_speed=30, number_of_lanes=1)
+W.addLink("link3", "merge", "dest", length=1000, free_flow_speed=30, number_of_lanes=1)
 ## ノード間のOD交通需要の作成
 W.adddemand(orig="orig1", dest="dest", t_start=0, t_end=1000, flow=0.45)
 W.adddemand("orig2", "dest", 400, 1000, 0.6)
@@ -32,6 +32,6 @@ W.exec_simulation()
 W.analyzer.print_simple_stats()
 
 # ネットワーク交通状態のスナップショット可視化
-for i in range(0,1200,10):
+for i in range(0,1200,1):
     W.analyzer.network(i, detailed=1, network_font_size=12)
 
